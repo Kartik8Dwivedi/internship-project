@@ -1,8 +1,7 @@
 const express = require('express');
-const mongoose = require('mongoose');
 const cors = require('cors');
 const ApiRoutes = require('./routes/index');
-const { MONGODB_URI, PORT } = require('./config/serverConfig');
+const { PORT } = require('./config/serverConfig');
 const { connect } = require('./config/connect');
 
 const app = express();
