@@ -14,7 +14,10 @@ app.use("/api", ApiRoutes);
 
 app.use("*", (req,res) => {
         res.send(
-          `<h2>Server is Up and running!</h2> <h3> Send GET request on /api/v1/get </h3>`
+          `<h2>Server is Up and running!</h2> 
+          <h3> Send GET request on /api/v1/ </h3>
+          <h2> Currently we support get and fetch requests only</h2>
+          `
         );
 })
 
