@@ -13,6 +13,17 @@ class CrudRepository {
     }
   }
 
+  async createMany(data){
+    try {
+      // data will be an array of objects
+      const result = await this.model.insertMany(data);
+      return result;
+    } catch (error) {
+      console.log("Error in repository(crud) layer", error);
+      throw error;
+    }
+  }
+
   async destroy(id) {
     try {
       const result = await this.model.findByIdAndDelete(id);
@@ -31,7 +42,7 @@ class CrudRepository {
     }
   }
 
-  async getAll(id) {
+  async getAll() {
     try {
       const result = await this.model.find({});
       return result;
@@ -52,4 +63,4 @@ class CrudRepository {
   }
 }
 
-export default CrudRepository;
+module.exports = CrudRepository;

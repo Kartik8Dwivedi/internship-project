@@ -1,5 +1,5 @@
-const DataRepository = require('./data-repository');
+const DataRepository = require("./data-repository");
 
 module.exports = {
-    DataRepository
-}
+  DataRepository,
+};

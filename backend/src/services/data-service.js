@@ -1,40 +1,15 @@
-const {DataRepository} = require('../repositories/data-repository');
+const { WAZIRX_URL } = require('../config/serverConfig');
+const {DataRepository} = require('../repositories');
+const axios = require("axios");
 
 class DataService{
     constructor(){
         this.dataRepository = new DataRepository();
     }
 
-    async create(data){
+        async getAll(){
         try{
-            const result = await this.dataRepository.create(data);
-            return result;
-        }catch(error){
-            console.log("Error in service layer", error);
-            throw error;
-        }
-    }
-
-    async destroy(id){
-        try{
-            const result = await this.dataRepository.destroy(id);
-            return result;
-        }catch(error){
-            console.log("Error in service layer", error);
-        }
-    }
-
-    async get(id){
-        try{
-            const result = await this.dataRepository.get(id);
-            return result;
-        }catch(error){
-            console.log("Error in service layer", error);
-        }
-    }
-
-    async getAll(){
-        try{
+            // call getAll method of dataRepository and return the result
             const result = await this.dataRepository.getAll();
             return result;
         }catch(error){
@@ -42,12 +17,26 @@ class DataService{
         }
     }
 
-    async update(id, data){
+    async fetchData(){
         try{
-            const result = await this.dataRepository.update(id, data);
-            return result;
+          const data = await axios.get(WAZIRX_URL);
+          const response = data.data;
+
+          let arr = [];
+
+          let count = 0;
+          for (let p in response) {
+            if(count === 10){
+              break;
+            }
+            arr.push({ ...response[p] });
+            count++;
+          }
+          await this.dataRepository.createMany(arr);
+          return arr;
         }catch(error){
             console.log("Error in service layer", error);
+            return false;
         }
     }
 }

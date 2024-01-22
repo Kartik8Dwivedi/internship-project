@@ -12,6 +12,12 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use("/api", ApiRoutes);
 
+app.use("*", (req,res) => {
+        res.send(
+          `<h2>Server is Up and running!</h2> <h3> Send GET request on /api/v1/get </h3>`
+        );
+})
+
 app.listen(PORT, async () => {
     await connect();
     console.log(`Server listening on port ${PORT}`);
