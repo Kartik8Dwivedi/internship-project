@@ -1,4 +1,7 @@
-Sample env files are mentioned in backend and frontend directories.
+# Setting Up the application:
+- Run `npm run dev` in backend directory
+- Run live server in the HTML file of frontend directory
+- Currently environment variables data is also shared but it will be changed soon, so put your secret keys in the .env file
 
 # Frontend
 ### Tech Stack:
