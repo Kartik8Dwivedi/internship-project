@@ -1,7 +1,7 @@
 //fetching data from backend
 async function fetchData() {
     document.querySelector("tbody").innerHTML = "";
-  fetch("https://internship-backend-service.onrender.com/api/v1/get")
+  fetch("http://localhost:5000/api/v1/get")
     .then((res) => res.json())
     .then((data) => {
       console.log(data);
@@ -23,7 +23,7 @@ async function fetchData() {
 }
 
 async function updateData() {
-  await fetch("https://internship-backend-service.onrender.com/api/v1/fetch");
+  await fetch("http://localhost:5000/api/v1/fetch");
   await fetchData();
 }
 
