@@ -146,18 +146,95 @@ table {
   right: 30px;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Oswald", sans-serif;
+/* .subHeading{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  height: 20vh;
+  flex-wrap: wrap;
+}
+.box{
+  height: 80%;
+  width: 10%;
+  color: #6CCACB;
+  font-size: 35px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.bigBox{
+  height: 80%;
+  font-size: 50px;
+  overflow: hidden;
+  color: #6CCACB;
+    display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+.grey{
+  color: #7F8187;
+  font-size: medium;
+}
+.smallGrey{
+  color: #7F8187;
+  font-size: 20px;
+} */
+
+/* General Styles */
+.subHeading {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  height: auto;
 }
 
-body {
-  background: var(--primary-color);
+.box,
+.bigBox {
+  flex: 1;
+  min-width: 80px;
+  margin: 10px;
 }
 
-/* Existing styles remain unchanged */
+.box,
+.bigBox {
+  height: 80%;
+  color: #6CCACB;
+  font-size: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.bigBox {
+  font-size: xx-large;
+}
+
+.grey {
+  color: #7F8187;
+  font-size: large;
+}
+
+.smallGrey {
+  color: #7F8187;
+  font-size: large;
+}
+
+@media (max-width: 768px) {
+  .subHeading {
+    display: none;
+    flex-wrap: wrap;
+  }
+}
+
+
+
 
 @media only screen and (max-width: 768px) {
   nav {
